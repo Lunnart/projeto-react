@@ -1,40 +1,18 @@
-import tenis from '../assets/tenis.svg'
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { ProductsContext } from '../context/ProductsContext'
 
-const produtos = [
-    {
-        produto: 'K-Swiss V8 - Masculino',
-        categoria: 'Tenis',
-        preco: 200,
-        img: tenis
-    },{
-        produto: 'K-Swiss V8 - Masculino',
-        categoria: 'Tenis',
-        preco: 200,
-        img: tenis
-    },{
-        produto: 'K-Swiss V8 - Masculino',
-        categoria: 'Tenis',
-        preco: 200,
-        img: tenis
-    },{
-        produto: 'K-Swiss V8 - Masculino',
-        categoria: 'Tenis',
-        preco: 200,
-        img: tenis
-    }
-]
 
 
 const ProductCard = () => {
     const {addToCart} = useContext(CartContext)
+    const {produtos} = useContext(ProductsContext)
   return (
     <section className='ml-8'>
         <h1 className='font-bold text-2xl mb-5'>Produtos Relacionados</h1>
         <ul className='flex gap-20'>
-            {produtos.map((item, index)=> (
-                <li key={index} className='border border-[#ccc] p-2'>
+            {produtos.map((item)=> (
+                <li key={item.id} className='border border-[#ccc] p-2'>
                     <div className='bg-[#E2E3FF] h-28 w-32 flex items-center justify-center rounded-sm '>
                         <img src={item.img} alt={item.produto} />
                     </div>
